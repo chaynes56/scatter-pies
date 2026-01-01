@@ -1,0 +1,1 @@
+# data directory needs to be a module so pynsist will include it

@@ -1,7 +1,5 @@
 # Show scatter plot of pie charts of precinct data
 
-# TODO remove pandas use
-
 # To access data file: data_file_path = os.path.join(os.path.dirname(__file__), 'data/FILE.csv')
 # per https://pynsist.readthedocs.io/en/latest/faq.html#building-on-other-platforms
 
