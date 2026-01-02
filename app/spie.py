@@ -6,6 +6,7 @@
 
 import matplotlib.pyplot as plt
 import csv
+import os
 import argparse
 
 # pie chart colors
@@ -28,8 +29,8 @@ def scatter_pie_plots(data) -> None :
     transposed_data = [list(row) for row in zip(*data)] # a list of columns
     precinct, x, y = transposed_data[:3]
 
-    fig, ax = plt.subplots()
-    plt.scatter(x, y) # s=1000, facecolor='none',edgecolors='r' ??
+    fig, ax = plt.subplots(figsize=(8, 8)) # 100 dpi default
+    plt.scatter(x, y) ## s=1000, facecolor='none',edgecolors='r' ??
     y_init = ax.get_ylim()
     x_init = ax.get_xlim()
 
@@ -41,7 +42,9 @@ def scatter_pie_plots(data) -> None :
     ax.grid(True)
     plt.xlabel('Dems %')
     plt.ylabel('Turnout %')
-    ## plt.axis('on')
+    base = os.path.basename(args.csv_file)
+    name, _ = os.path.splitext(base)
+    plt.savefig('../images/' + name + '.jpg', dpi=300, bbox_inches='tight')
     plt.show()
 
 if __name__ == '__main__':

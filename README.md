@@ -8,7 +8,7 @@ Started with [this code](https://stackoverflow.com/questions/66512564/matplotlib
 * add precinct names
 * add color legend
 * double scale of x axis
-* enlarge entire plot
+* integrate with excel ?
 * `pyinstaller app/spie.py` test
 * `pynsist installer.cfg` test
 
