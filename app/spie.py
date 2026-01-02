@@ -15,13 +15,10 @@ color_key = ['hs_vacp', 'hs_ownp', 'hs_renp', 'hs_vctp']
 parser = argparse.ArgumentParser()
 parser.add_argument("--csv_file", type=str, default = "../data/BL-data.csv",
                     help="The name of a CSV precinct data file).")
+# Optional argument example:
 # parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose output (optional flag).")
-args = parser.parse_args()
 
-# from https://stackoverflow.com/questions/66512564/matplotlib-pie-charts-as-scatter-plot#:~:text=def%20plot_pie%28x
-# %2C%20ax%2C,%29%20ax.set_frame_on%28True%29
-def plot_pie(row, ax) -> None:
-    ax.pie(row[3:], center=(row[1], row[2]), radius=0.01, colors=colors) # frame=True ??
+args = parser.parse_args()
 
 def scatter_pie_plots(data) -> None :
     # data is a list of row lists
@@ -37,10 +34,14 @@ def scatter_pie_plots(data) -> None :
     x_init = ax.get_xlim()
 
     for row in data:
-        plot_pie(row, ax)
+        ax.pie(row[3:], center=(row[1], row[2]), radius=0.02, colors=colors, frame=True)
 
     ax.set_ylim(y_init)
     ax.set_xlim(x_init)
+    ax.grid(True)
+    plt.xlabel('Dems %')
+    plt.ylabel('Turnout %')
+    ## plt.axis('on')
     plt.show()
 
 if __name__ == '__main__':

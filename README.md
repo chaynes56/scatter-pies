@@ -1,8 +1,14 @@
 # Scatter pie plots for DemDev project
 
+Started with [this code](https://stackoverflow.com/questions/66512564/matplotlib-pie-charts-as-scatter-plot#:~:text=def%20plot_pie%28x%2C%20ax%2C,%29%20ax.set_frame_on%28True%29).
+
 ## TODO
 * Pycharm notification 20 keybinding conflicts
-* remove pandas use, remove pandas from venv
+* remove pandas from venv
+* add precinct names
+* add color legend
+* double scale of x axis
+* enlarge entire plot
 * `pyinstaller app/spie.py` test
 * `pynsist installer.cfg` test
 
@@ -17,3 +23,4 @@
 
 ## Documentation
 * [pyplot.scatter](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html)
+* [w3school matplotlib](https://www.w3schools.com/python/matplotlib_scatter.asp)
