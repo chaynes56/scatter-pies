@@ -8,31 +8,37 @@ import matplotlib.pyplot as plt
 import csv
 import argparse
 
+# pie chart colors
+colors = ['green', 'red', 'yellow', 'blue'] # also 'magenta', 'cyan'
+color_key = ['hs_vacp', 'hs_ownp', 'hs_renp', 'hs_vctp']
+
 parser = argparse.ArgumentParser()
-parser.add_argument("csv_file", type=str,
-                    default = "data/BL-data.csv",
+parser.add_argument("--csv_file", type=str, default = "../data/BL-data.csv",
                     help="The name of a CSV precinct data file).")
 # parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose output (optional flag).")
 args = parser.parse_args()
 
 # from https://stackoverflow.com/questions/66512564/matplotlib-pie-charts-as-scatter-plot#:~:text=def%20plot_pie%28x
 # %2C%20ax%2C,%29%20ax.set_frame_on%28True%29
-def plot_pie(x, ax):
-    ax.pie(x[['a', 'b', 'c']], center=(x['lat'], x['lon']), radius=1, colors=['r', 'b', 'g'],
-           wedgeprops={'clip_on': True}, frame=True)
+def plot_pie(row, ax) -> None:
+    ax.pie(row[3:], center=(row[1], row[2]), radius=0.01, colors=colors) # frame=True ??
 
-def scatter_pie_plots(data):
+def scatter_pie_plots(data) -> None :
     # data is a list of row lists
-    transposed_data = [list(row) for row in zip(*data)[1:]] # a list of columns, skipping header row
-    # my data is stored in a similar styled dataframe that I read from a csv and the data is static
-    sim_data = pd.DataFrame({'a':rand(),'b':rand(),'c':rand(), 'lat':rand(),'lon':rand()})
+    data = data[1:] # remove header row
+    data = [[row[0]] + [float(x) for x in row[1:]] for row in data] # float all but the precinct name
+
+    transposed_data = [list(row) for row in zip(*data)] # a list of columns
+    precinct, x, y = transposed_data[:3]
 
     fig, ax = plt.subplots()
-    plt.scatter(x=sim_data['lat'], y=sim_data['lon'], s=1000, facecolor='none',edgecolors='r')
+    plt.scatter(x, y) # s=1000, facecolor='none',edgecolors='r' ??
     y_init = ax.get_ylim()
     x_init = ax.get_xlim()
 
-    sim_data.apply(lambda x : plot_pie(x,ax), axis=1)
+    for row in data:
+        plot_pie(row, ax)
+
     ax.set_ylim(y_init)
     ax.set_xlim(x_init)
     plt.show()
@@ -40,5 +46,5 @@ def scatter_pie_plots(data):
 if __name__ == '__main__':
     print('Generating scatter plot of pie charts for data in ', args.csv_file)
     with open(args.csv_file, newline='') as csvfile:
-        data = list(csv.reader(csvfile))
-    scatter_pie_plots(data)
+        csv_data = list(csv.reader(csvfile))
+    scatter_pie_plots(csv_data)

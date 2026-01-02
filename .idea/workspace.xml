@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62b93780-2b72-491d-af1e-7b4ccd1570ba" name="Changes" comment="main.py and spie.py separated, doc added">
+    <list default="true" id="62b93780-2b72-491d-af1e-7b4ccd1570ba" name="Changes" comment="Started csv code, parameters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/spie.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/spie.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +22,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "chaynes56"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/chaynes56/scatter-pies.git",
+    "accountId": "e2427269-d11e-4a62-bd3e-3b18873d9eaf"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -41,7 +53,7 @@
     "Notification.DoNotAsk-Python Stub Packages Advertiser": "true",
     "Python.__init__.executor": "Debug",
     "Python.main.executor": "Debug",
-    "Python.spie.executor": "Debug",
+    "Python.spie.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -82,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1767213232009</updated>
       <workItem from="1767213233028" duration="1917000" />
-      <workItem from="1767216361136" duration="27700000" />
+      <workItem from="1767216361136" duration="37203000" />
     </task>
     <task id="LOCAL-00001" summary="added plot pie code">
       <option name="closed" value="true" />
@@ -116,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767299980965</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Started csv code, parameters">
+      <option name="closed" value="true" />
+      <created>1767307105912</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1767307105912</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,11 +158,12 @@
     <MESSAGE value="added spie.py" />
     <MESSAGE value="clean up main.py" />
     <MESSAGE value="main.py and spie.py separated, doc added" />
-    <option name="LAST_COMMIT_MESSAGE" value="main.py and spie.py separated, doc added" />
+    <MESSAGE value="Started csv code, parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started csv code, parameters" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ScatterPieCharts$main.coverage" NAME="main Coverage Results" MODIFIED="1767225761755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ScatterPieCharts$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1767291623879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
-    <SUITE FILE_PATH="coverage/ScatterPieCharts$spie.coverage" NAME="spie Coverage Results" MODIFIED="1767301600605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/ScatterPieCharts$spie.coverage" NAME="spie Coverage Results" MODIFIED="1767318127751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
   </component>
 </project>
