@@ -25,12 +25,16 @@ def scatter_pie_plots(data) -> None :
     :param data: a list of row lists
     """
     data = data[1:] # remove header row
-    data = [[row[0]] + [float(x) for x in row[1:]] for row in data] # float all but the precinct name
+
+    x_fn = lambda x: (x - 0.5) * 2
+    x_inv_fn = lambda x: x * 2 + 0.5
+    # float all but the precinct name and transform x values
+    data = [[row[0], x_fn(float(row[1]))] + [float(x) for x in row[2:]] for row in data]
 
     transposed_data = [list(row) for row in zip(*data)] # a list of columns
     precinct, x_values, y_values = transposed_data[:3]
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(8,4))
     plt.scatter(x_values, y_values)
     x_init = ax.get_xlim()
     y_init = ax.get_ylim()
@@ -38,12 +42,20 @@ def scatter_pie_plots(data) -> None :
     for row in data:
         precinct, x, y = row[0:3]
         pie_values = row[3:]
-        ax.pie(pie_values, center=(x, y), radius=0.02, colors=colors, frame=True)
+        ax.pie(pie_values, center=(x, y), radius=0.015, colors=colors, frame=True)
         ax.text(x, y, str(precinct), ha='left', va='top', fontsize=6, color='black')
 
     ax.set_ylim(y_init)
     ax.set_xlim(x_init)
+    plt.axis((0.0, 1.0, 0.0, 1.0)) ##
     ax.grid(True)
+
+    # x labels need transformation to account for applying x_fn to values
+    xlabels = ax.get_xticklabels() # list of objects with float(._x) and ._text attributes
+    ticks = [x_inv_fn(float(t._x)) for t in xlabels]
+    labels = [t.get_text() for t in xlabels]
+
+    plt.xticks(ticks, labels)
     plt.xlabel('Dems %')
     plt.ylabel('Turnout %')
 
@@ -54,7 +66,7 @@ def scatter_pie_plots(data) -> None :
     text_legend = ''
     for c, key in zip(colors, color_key):
         text_legend += c + ': ' + key + '\n'
-    plt.figtext(0.7, 0.5, text_legend)
+    plt.figtext(0.75, 0.5, text_legend, size=8)
     plt.figtext(0.4, 0.9, 'Precincts of ' + file_name, size=12)
 
     if args.image:
