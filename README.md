@@ -1,7 +1,6 @@
 # Scatter pie plots for DemDev project
 
 ## TODO
-* resolve detached head
 * double scale of x axis
 * `pyinstaller app/spie.py` test
 * `pynsist installer.cfg` test

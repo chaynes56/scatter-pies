@@ -51,9 +51,9 @@ def scatter_pie_plots(data) -> None :
     ax.grid(True)
 
     # x labels need transformation to account for applying x_fn to values
-    xlabels = ax.get_xticklabels() # list of objects with float(._x) and ._text attributes
-    ticks = [x_inv_fn(float(t._x)) for t in xlabels]
-    labels = [t.get_text() for t in xlabels]
+    x_labels = ax.get_xticklabels() # list of objects with float(._x) and ._text attributes
+    ticks = [x_inv_fn(float(t._x)) for t in x_labels]
+    labels = [t.get_text() for t in x_labels]
 
     plt.xticks(ticks, labels)
     plt.xlabel('Dems %')
