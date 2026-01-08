@@ -1,7 +1,7 @@
 # Scatter pie plots for DemDev project
 
 ## TODO
-* double scale of x axis
+* dynamic x_fn and inv_x_fn
 * `pyinstaller app/spie.py` test
 * `pynsist installer.cfg` test
 
